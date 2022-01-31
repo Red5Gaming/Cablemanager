@@ -1,9 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
-      <input type="text">
-      <button class="btn btn-primary"  (click)="onClick()" >Add</button>
-
+      <form [formGroup]="fullForm" (ngSubmit)="onClick()">
+        <input type="text" formControlName="name">
+        <input type="text" formControlName="desc">
+        <input type="text" formControlName="input">
+        <input type="text" formControlName="output">
+        <button class="btn btn-primary">Add</button>
+      </form>
     </div>
 
 
