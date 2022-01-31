@@ -5,13 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ComponentListComponent } from './component-list/component-list.component';
+//import { ComponentModelComponent } from './component-list/component-model/component-model.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    ComponentListComponent,
+   // ComponentModelComponent
 
   ],
   imports: [

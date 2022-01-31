@@ -33,7 +33,6 @@
             ],
             "scripts": [
 
-              "node_modules/bootstrap/js/dist/dropdown.js"
             ]
           },
           "configurations": {
