@@ -11,24 +11,38 @@ import {ComponentService} from "../services/component.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  fullForm: FormGroup
+
+  fullForm: FormGroup = new FormGroup({
+    title: new FormControl(''),
+    description: new FormControl('')
+  })
 
 
-  public inNum: number = 1 //this.fullForm.value.inNum
-  // inNumArr: string[] = new Array(this.inNum).fill('')
-inNumArr: string[] = ['a', 'b']
+  public inNum: number = this.fullForm.value.inNum //this.fullForm.value.inNum
 
-  constructor(private componentService: ComponentService) {  }
+  inNumArr: string[] = new Array(this.inNum).fill('') //Correct one
+//inNumArr: string[] = ['a', 'b'] //FOR TESTING
+
+  constructor(private componentService: ComponentService) {
+  }
+
+  counter(i: number) {
+    return new Array(i)
+  }
+
+  
 
 
   onClick() {
     //console.log("AAAAAAAAAAAAAAAAAA")
     console.log(this.fullForm.value.inNum)
-
+    console.log(this.inNumArr)
     console.log(this.fullForm.value)
     this.componentService.addComponent(this.fullForm.value)
     this.fullForm.reset()
   }
+
+
 
 
   ngOnInit(): void {
