@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ComponentListComponent } from './component-list/component-list.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { NavbarComponent } from './navbar/navbar.component';
 //import { ComponentModelComponent } from './component-list/component-model/component-model.component';
 
 
@@ -16,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     HeaderComponent,
     SidebarComponent,
     ComponentListComponent,
+    NavbarComponent,
    // ComponentModelComponent
 
   ],

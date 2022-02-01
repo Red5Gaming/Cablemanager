@@ -10,19 +10,22 @@ export class ComponentService {
   components: BehaviorSubject<Array<components>> = new BehaviorSubject<components[]>([])
 
 
-
   addComponent(componentObject: components) {
     let currentComponents: components[] = this.components.value
-    let newComponentArray = [...currentComponents, componentObject]
-//    let newComponentArray: components[] = currentComponents.push(componentObject)
+    let newComponentArray: components[] = [...currentComponents, componentObject]
+    // let newComponentArray: components[] = currentComponents.push(componentObject)
     this.components.next(newComponentArray)
+    console.log(newComponentArray) //Desc. exists and is NOT NULL
   }
+
 
 
   initFirstComponents() {
-   this.components.next( [
-     new components("Converter", "HDMI zu VGA", "HDMI", "VGA"),
-     new components("Splitter", "Hinter schrank", "HDMI", "2x HDMI")
-   ] )
+    this.components.next([
+      new components("Converter", "HDMI zu VGA", "HDMI", "VGA"),
+      new components("Splitter", "Hinter Schrank", "HDMI", "2x HDMI")
+    ])
   }
+
+
 }

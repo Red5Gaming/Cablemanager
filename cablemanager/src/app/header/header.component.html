@@ -2,16 +2,59 @@
   <div class="row">
     <div class="col-sm-4">
       <form [formGroup]="fullForm" (ngSubmit)="onClick()">
-        <input type="text" formControlName="name">
-        <input type="text" formControlName="desc">
-        <input type="text" formControlName="input">
-        <input type="text" formControlName="output">
-        <button class="btn btn-primary">Add</button>
-      </form>
-    </div>
 
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" formControlName="name" id="name" class="form-control" placeholder="Enter component name">
+
+          <label for="desc">Description</label>
+          <input type="text" formControlName="desc" id="desc" class="form-control"
+                 placeholder="Enter component description">
+
+       <div *ngFor="let i of inNumArr">
+          <label for="input">Input</label>
+          <input type="text" formControlName="input" id="input" class="form-control"
+                 placeholder="Enter component input(s)">
+             </div>
+
+          <label for="output">Output</label>
+          <input type="text" formControlName="output" id="output" class="form-control"
+                 placeholder="Enter component output(s)">
+
+
+
+          <div class="row">
+            <div class="col-sm-10">
+          <label for="inNum">Input Amount</label>
+        <input type="number" id="inNum" class="form-control" placeholder="Input Amount" formControlName="inNum" [(ngModel)]="inNum" >
+
+          </div>
+
+            <div class="col-sm-2">
+              <button class="btn btn-success" style="margin-top: 24px; margin-left: -15px">Refresh</button>
+            </div>
+
+<!--NumRowEnd-->
+        </div>
+
+
+        </div>
+
+
+        <button class="btn btn-primary" style="margin-top: 10px" [disabled]="!fullForm.valid">Add component</button>
+
+
+
+    </form>
 
   </div>
+  <h6 style="margin-top: 10px"> To enable/disable initial components in component-list.component.ts ->
+    this.componentService.initFirstComponents(); <br>
+    And in component.service.ts comment out initFirstComponents()</h6>
+
+</div>
 
 
 </div>
+
+
