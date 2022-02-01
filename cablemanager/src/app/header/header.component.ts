@@ -14,13 +14,11 @@ export class HeaderComponent implements OnInit {
   fullForm: FormGroup
 
 
-  public inNum: number = this.fullForm.value.inNum
+  public inNum: number = 1 //this.fullForm.value.inNum
   // inNumArr: string[] = new Array(this.inNum).fill('')
 inNumArr: string[] = ['a', 'b']
 
-  constructor(private componentService: ComponentService) {
-
-  }
+  constructor(private componentService: ComponentService) {  }
 
 
   onClick() {
