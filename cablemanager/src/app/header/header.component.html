@@ -1,6 +1,7 @@
 <div class="container" xmlns="http://www.w3.org/1999/html">
   <div class="row">
     <div class="col-sm-4">
+
       <form [formGroup]="fullForm" (ngSubmit)="onClick()">
 
         <div class="form-group">
@@ -46,9 +47,7 @@
                  formControlName="inNum"
                  min="1">
 
-
         </div>
-
 
         <button
           class="btn
@@ -58,18 +57,23 @@
         >Add component
         </button>
 
-
       </form>
 
-
     </div>
-    <h6 style="margin-top: 10px"> To enable/disable initial components in component-list.component.ts ->
-      this.componentService.initFirstComponents(); <br>
-      And in component.service.ts comment out initFirstComponents()</h6>
+
+
+    <h6 style="margin-top: 10px"> To enable/disable initial components comment out
+      <div class="text-warning"> this.componentService.initFirstComponents(); ll. 20-24</div>
+      in <a
+        href="https://github.com/Red5Gaming/Cablemanager/blob/master/cablemanager/src/app/component-list/component-list.component.ts">component-list.component.ts </a>
+      <br>
+      <br>
+      And in <a
+        href="https://github.com/Red5Gaming/Cablemanager/blob/master/cablemanager/src/app/services/component.service.ts">
+        component.service.ts</a> comment out
+      <div class="text-warning"> initFirstComponents() ll. 23-28</div>
+    </h6>
 
   </div>
 
-
 </div>
-
-

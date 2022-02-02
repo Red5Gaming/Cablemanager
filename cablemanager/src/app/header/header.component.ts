@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-// import {components} from "../component-list/component-model/component-model.component";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-// import {BehaviorSubject} from "rxjs";
 import {ComponentService} from "../services/component.service";
-
+// import {BehaviorSubject} from "rxjs";
+// import {components} from "../component-list/component-model/component-model.component";
 
 @Component({
-  selector: 'app-header', templateUrl: './header.component.html', styleUrls: ['./header.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
 
@@ -16,34 +17,28 @@ export class HeaderComponent implements OnInit {
 
   public inNum: number = this.fullForm.value.inNum //this.fullForm.value.inNum
 
-
-  constructor(private componentService: ComponentService) {
-  }
-
+  constructor(private componentService: ComponentService) {}
 
   //Creates array with i length
   arraylen(i: number) {
     return new Array<number>(i).fill(1)
   }
 
-
   onClick() {
     this.componentService.addComponent(this.fullForm.value)
     this.fullForm.reset()
   }
 
-
   refreshInF() {
     return this.arraylen(this.fullForm.value.inNum)
   }
 
-  // Should return as many 'input1/2/3...: new FormControl...'
+  // Should return as many 'input1/2/3...: new FormControl...' as there are in inNum
   // public formCTRLinput() {
   //    this.refreshInF().forEach((value, index) => {
   //     return "input" + index + ": new FormControl(null, Validators.required)"
   //    })
   // }
-
 
   ngOnInit(): void {
 
@@ -53,7 +48,7 @@ export class HeaderComponent implements OnInit {
       desc: new FormControl(null, Validators.required),
 
 
-      //TODO: Implement multiple Formcontrols for inputs
+      //TODO: Implement multiple Formcontrols for inputs and make it work in the component-list with In1:Lorem \n In2: Ipsum \n In3: xyz
       input: new FormControl(null, Validators.required),
 
 

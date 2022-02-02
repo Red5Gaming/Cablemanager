@@ -22,8 +22,8 @@ export class ComponentService {
 
   initFirstComponents() {
     this.components.next([
-      new components("Converter", "HDMI zu VGA", "HDMI", "VGA"),
-      new components("Splitter", "Hinter Schrank", "HDMI", "2x HDMI")
+      new components("Monitor", "60hz", "HDMI", "BILD"),
+      new components("Splitter", "Hinter Schrank", "HDMI", "HDMI & Aux")
     ])
   }
 
