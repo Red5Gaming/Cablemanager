@@ -1,16 +1,16 @@
 <div class="container" xmlns="http://www.w3.org/1999/html">
   <div class="row">
     <div class="col-sm-4">
-
       <form [formGroup]="fullForm" (ngSubmit)="onClick()">
-
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text"
-                 formControlName="name"
-                 id="name"
-                 class="form-control"
-                 placeholder="Enter component name">
+          <input
+            type="text"
+            formControlName="name"
+            id="name"
+            class="form-control"
+            placeholder="Enter component name"
+          />
 
           <label for="desc">Description</label>
           <input
@@ -18,62 +18,74 @@
             formControlName="desc"
             id="desc"
             class="form-control"
-            placeholder="Enter component description">
+            placeholder="Enter component description"
+          />
 
           <!--          Input Amount Start-->
           <div *ngFor="let i of refreshInF(); let index = index">
-            <label for="input{{index}}">Input {{index + 1}}</label>
-            <input type="text" formControlName="input" id="input{{index}}" class="form-control"
-                   placeholder="Enter component input {{index + 1}}">
+            <label for="input{{ index }}">Input {{ index + 1 }}</label>
+            <input
+              type="text"
+              formControlName="input"
+              id="input{{ index }}"
+              class="form-control"
+              placeholder="Enter component input {{ index + 1 }}"
+            />
           </div>
           <!--            Input Amount end-->
 
-
           <label for="output">Output</label>
-          <input type="text"
-                 formControlName="output"
-                 id="output"
-                 class="form-control"
-                 placeholder="Enter component output(s)">
-
+          <input
+            type="text"
+            formControlName="output"
+            id="output"
+            class="form-control"
+            placeholder="Enter component output(s)"
+          />
 
           <!--NumRowStart-->
 
           <label for="inNum">Input Amount</label>
-          <input type="number"
-                 id="inNum"
-                 class="form-control"
-                 placeholder="Input Amount"
-                 formControlName="inNum"
-                 min="1">
-
+          <input
+            type="number"
+            id="inNum"
+            class="form-control"
+            placeholder="Input Amount"
+            formControlName="inNum"
+            min="1"
+          />
         </div>
 
         <button
-          class="btn
-          btn-primary"
+          class="btn btn-primary"
           style="margin-top: 10px"
           [disabled]="!fullForm.valid"
-        >Add component
+        >
+          Add component
         </button>
-
       </form>
-
     </div>
 
-
-    <h6 style="margin-top: 10px"> To enable/disable initial components comment out
-      <div class="text-warning"> this.componentService.initFirstComponents(); ll. 20-24</div>
-      in <a
-        href="https://github.com/Red5Gaming/Cablemanager/blob/master/cablemanager/src/app/component-list/component-list.component.ts">component-list.component.ts </a>
-      <br>
-      <br>
-      And in <a
-        href="https://github.com/Red5Gaming/Cablemanager/blob/master/cablemanager/src/app/services/component.service.ts">
-        component.service.ts</a> comment out
-      <div class="text-warning"> initFirstComponents() ll. 23-28</div>
+    <h6 style="margin-top: 10px">
+      To enable/disable initial components comment out
+      <div class="text-warning">
+        this.componentService.initFirstComponents(); ll. 20-24
+      </div>
+      in
+      <a
+        href="https://github.com/Red5Gaming/Cablemanager/blob/master/cablemanager/src/app/component-list/component-list.component.ts"
+        >component-list.component.ts
+      </a>
+      <br />
+      <br />
+      And in
+      <a
+        href="https://github.com/Red5Gaming/Cablemanager/blob/master/cablemanager/src/app/services/component.service.ts"
+      >
+        component.service.ts</a
+      >
+      comment out
+      <div class="text-warning">initFirstComponents() ll. 23-28</div>
     </h6>
-
   </div>
-
 </div>

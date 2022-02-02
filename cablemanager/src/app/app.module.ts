@@ -6,10 +6,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
 import { ComponentListComponent } from './component-list/component-list.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 //import { ComponentModelComponent } from './component-list/component-model/component-model.component';
-
 
 @NgModule({
   declarations: [
@@ -18,16 +17,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 
     ComponentListComponent,
     NavbarComponent,
-   // ComponentModelComponent
-
+    // ComponentModelComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -5,11 +5,9 @@ export class components {
   public output: string;
 
   constructor(name: string, desc: string, input: string, output: string) {
-
-    this.name = name
+    this.name = name;
     this.desc = desc;
     this.input = input;
-    this.output = output
+    this.output = output;
   }
-
 }
