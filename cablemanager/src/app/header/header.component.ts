@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {components} from "../component-list/component-model/component-model.component";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {BehaviorSubject} from "rxjs";
@@ -12,68 +12,62 @@ import {ComponentService} from "../services/component.service";
 })
 export class HeaderComponent implements OnInit {
 
-  fullForm: FormGroup = new FormGroup({
+  public fullForm: FormGroup = new FormGroup({
     title: new FormControl(''),
     description: new FormControl('')
   })
 
-  //Creates array with i length
-  arraylen(i: number) {
-   return new Array<number>(i).fill(1)
-  }
-
-inNumlen: number[]
-
-
   public inNum: number = this.fullForm.value.inNum //this.fullForm.value.inNum
-
   inNumArr: string[] = new Array(this.inNum).fill('') //Correct one
-//inNumArr: string[] = ['a', 'b'] //FOR TESTING
 
   constructor(private componentService: ComponentService) {
   }
 
-  counter(i: number) {
-    return new Array(i)
+
+  //Creates array with i length
+  arraylen(i: number) {
+    return new Array<number>(i).fill(1)
   }
 
 
 
 
   onClick() {
-
-    //console.log("AAAAAAAAAAAAAAAAAA")
-    console.log(this.fullForm.value.inNum)
-    console.log(this.inNumArr)
-    console.log(this.fullForm.value)
-
     this.componentService.addComponent(this.fullForm.value)
     this.fullForm.reset()
   }
 
 
-refreshInF() {
+  refreshInF() {
     let inLenArr: number[] = this.arraylen(this.fullForm.value.inNum)
-  console.log(inLenArr)
     return inLenArr
 
-}
 
+  }
 
+ public formCTRLinput() {
+    this.refreshInF().forEach((value, index) => {
+     return "input" + index + ": new FormControl(null, Validators.required)"
+    })
+ }
 
 
   ngOnInit(): void {
 
 
+
+
     this.fullForm = new FormGroup({
+
       name: new FormControl(null, Validators.required),
       desc: new FormControl(null, Validators.required),
 
 
+      //TODO: Implement multiple Formcontrols for inputs
       input: new FormControl(null, Validators.required),
 
       output: new FormControl(null, Validators.required),
-      inNum: new FormControl(null, [Validators.min(1), Validators.max(10), Validators.required])
+      inNum: new FormControl(1, [Validators.min(1), Validators.required])
     });
   }
 
