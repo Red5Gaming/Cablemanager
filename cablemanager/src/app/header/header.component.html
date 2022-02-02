@@ -60,6 +60,7 @@
           class="btn btn-primary"
           style="margin-top: 10px"
           [disabled]="!fullForm.valid"
+          [ngStyle]="{'background-color': fullForm.valid ? 'green' : '#8B0000' }"
         >
           Add component
         </button>

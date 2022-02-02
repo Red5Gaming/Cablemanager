@@ -34,11 +34,11 @@ export class HeaderComponent implements OnInit {
   }
 
   // Should return as many 'input1/2/3...: new FormControl...' as there are in inNum
-  // public formCTRLinput() {
-  //    this.refreshInF().forEach((value, index) => {
-  //     return "input" + index + ": new FormControl(null, Validators.required)"
-  //    })
-  // }
+  public formCTRLinput() {
+     this.refreshInF().forEach((value, index) => {
+      return "input" + index + ": new FormControl(null, Validators.required)"
+     })
+  }
 
   ngOnInit(): void {
     this.fullForm = new FormGroup({
