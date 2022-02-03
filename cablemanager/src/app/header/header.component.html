@@ -53,6 +53,7 @@
             placeholder="Input Amount"
             formControlName="inNum"
             min="1"
+            max="99"
           />
         </div>
 
@@ -62,7 +63,7 @@
           [disabled]="!fullForm.valid"
           [ngStyle]="{'background-color': fullForm.valid ? 'green' : '#8B0000' }"
         >
-          Add component
+         + Add component
         </button>
       </form>
     </div>

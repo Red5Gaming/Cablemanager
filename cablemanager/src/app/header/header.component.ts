@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ComponentService } from '../services/component.service';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ComponentService} from '../services/component.service';
 // import {BehaviorSubject} from "rxjs";
 // import {components} from "../component-list/component-model/component-model.component";
 
@@ -10,6 +10,7 @@ import { ComponentService } from '../services/component.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+
   public fullForm: FormGroup = new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
@@ -17,12 +18,14 @@ export class HeaderComponent implements OnInit {
 
   public inNum: number = this.fullForm.value.inNum; //this.fullForm.value.inNum
 
-  constructor(private componentService: ComponentService) {}
+  constructor(private componentService: ComponentService) {
+  }
 
   //Creates array with i length
   arraylen(i: number) {
     return new Array<number>(i).fill(1);
   }
+
 
   onClick() {
     this.componentService.addComponent(this.fullForm.value);
@@ -35,13 +38,14 @@ export class HeaderComponent implements OnInit {
 
   // Should return as many 'input1/2/3...: new FormControl...' as there are in inNum
   public formCTRLinput() {
-     this.refreshInF().forEach((value, index) => {
+    this.refreshInF().forEach((value, index) => {
       return "input" + index + ": new FormControl(null, Validators.required)"
-     })
+    })
   }
 
   ngOnInit(): void {
-    this.fullForm = new FormGroup({
+
+    const fields: any = {
       name: new FormControl(null, Validators.required),
       desc: new FormControl(null, Validators.required),
 
@@ -50,6 +54,11 @@ export class HeaderComponent implements OnInit {
 
       output: new FormControl(null, Validators.required),
       inNum: new FormControl(1, [Validators.min(1), Validators.required]),
-    });
+
+    };
+    for (let i = 0; i < 5; i++) {
+      fields['input' + i] = new FormControl(null, Validators.required);
+    }
+    this.fullForm = new FormGroup(fields);
   }
 }
