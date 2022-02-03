@@ -22,16 +22,20 @@
           />
 
           <!--          Input Amount Start-->
-          <div *ngFor="let i of refreshInF(); let index = index">
+<div formArrayName="formArrayName">
+  <button (click)="addInput()" class="btn btn-primary" type="button">Add input</button>
+          <div *ngFor="let i of inputs.controls; let index = index">
             <label for="input{{ index }}">Input {{ index + 1 }}</label>
             <input
               type="text"
-              formControlName="input"
+              [formControlName]="index"
               id="input{{ index }}"
               class="form-control"
               placeholder="Enter component input {{ index + 1 }}"
             />
           </div>
+
+        </div>
           <!--            Input Amount end-->
 
           <label for="output">Output</label>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {FormControl, FormGroup, Validators, ReactiveFormsModule, FormArray, FormBuilder} from '@angular/forms';
 import { ComponentService } from '../services/component.service';
 // import {BehaviorSubject} from "rxjs";
 // import {components} from "../component-list/component-model/component-model.component";
@@ -10,14 +10,44 @@ import { ComponentService } from '../services/component.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  public fullForm: FormGroup = new FormGroup({
-    title: new FormControl(''),
-    description: new FormControl(''),
-  });
+
+  // public fullForm: FormGroup = new FormGroup({
+  //   title: new FormControl(''),
+  //   description: new FormControl(''),
+  // });
+
+//  Reactive Forms spaß
+fullForm = this.fb.group({
+  name: ['', Validators.required],
+  desc: ['', Validators.required],
+  output: ['', Validators.required],
+  inputs: this.fb.array([
+    this.fb.control('')
+  ])
+})
+
+get inputs() {
+  return this.fullForm.get('inputs') as FormArray
+}
+
+addInput() {
+  this.inputs.push(this.fb.control(''));
+}
+
+
+
+
+
+
+
+
+
+
+
 
   public inNum: number = this.fullForm.value.inNum; //this.fullForm.value.inNum
 
-  constructor(private componentService: ComponentService) {}
+  constructor(private componentService: ComponentService, private fb: FormBuilder) {}
 
   //Creates array with i length
   arraylen(i: number) {
@@ -35,21 +65,23 @@ export class HeaderComponent implements OnInit {
 
   // Should return as many 'input1/2/3...: new FormControl...' as there are in inNum
   public formCTRLinput() {
-     this.refreshInF().forEach((value, index) => {
+    this.refreshInF().forEach((value, index) => {
       return "input" + index + ": new FormControl(null, Validators.required)"
-     })
+    })
   }
 
   ngOnInit(): void {
-    this.fullForm = new FormGroup({
-      name: new FormControl(null, Validators.required),
-      desc: new FormControl(null, Validators.required),
 
-      //TODO: Implement multiple Formcontrols for inputs and make it work in the component-list with In1:Lorem \n In2: Ipsum \n In3: xyz
-      input: new FormControl(null, Validators.required),
+    // this.fullForm = new FormGroup({
+    //   name: new FormControl(null, Validators.required),
+    //   desc: new FormControl(null, Validators.required),
+    //
+    //   //TODO: Implement multiple Formcontrols for inputs and make it work in the component-list with In1:Lorem \n In2: Ipsum \n In3: xyz
+    //   input: new FormControl(null, Validators.required),
+    //
+    //   output: new FormControl(null, Validators.required),
+    //   inNum: new FormControl(1, [Validators.min(1), Validators.required]),
+    // });
 
-      output: new FormControl(null, Validators.required),
-      inNum: new FormControl(1, [Validators.min(1), Validators.required]),
-    });
   }
 }
