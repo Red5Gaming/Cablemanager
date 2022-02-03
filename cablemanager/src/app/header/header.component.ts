@@ -49,16 +49,21 @@ export class HeaderComponent implements OnInit {
       name: new FormControl(null, Validators.required),
       desc: new FormControl(null, Validators.required),
 
+
       //TODO: Implement multiple Formcontrols for inputs and make it work in the component-list with In1:Lorem \n In2: Ipsum \n In3: xyz
+      //PROBLEM: Dynamicly create them and handle them, easy solution would be to have one and spereate them with ' ', ',' etc. and slice
       input: new FormControl(null, Validators.required),
 
       output: new FormControl(null, Validators.required),
       inNum: new FormControl(1, [Validators.min(1), Validators.required]),
 
     };
+
     for (let i = 0; i < 5; i++) {
-      fields['input' + i] = new FormControl(null, Validators.required);
+      fields['input'+i] = new FormControl(null);
     }
+
+
     this.fullForm = new FormGroup(fields);
   }
 }

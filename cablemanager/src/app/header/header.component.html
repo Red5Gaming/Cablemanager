@@ -23,13 +23,13 @@
 
           <!--          Input Amount Start-->
           <div *ngFor="let i of refreshInF(); let index = index">
-            <label for="input{{ index }}">Input {{ index + 1 }}</label>
+            <label for="input{{index}}">Input{{index+1}}</label>
             <input
               type="text"
               formControlName="input"
-              id="input{{ index }}"
+              id="input{{index}}"
               class="form-control"
-              placeholder="Enter component input {{ index + 1 }}"
+              placeholder="Enter component input{{index+1}}"
             />
           </div>
           <!--            Input Amount end-->
@@ -55,6 +55,8 @@
             min="1"
             max="99"
           />
+
+
         </div>
 
         <button
@@ -91,3 +93,6 @@
     </h6>
   </div>
 </div>
+
+
+
