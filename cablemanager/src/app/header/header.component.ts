@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ComponentService} from '../services/component.service';
 // import {BehaviorSubject} from "rxjs";
@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
     description: new FormControl(''),
   });
 
- @Input() inNum: number = this.fullForm.value.inNum; //this.fullForm.value.inNum
+  inNum: number = this.fullForm.value.inNum; //this.fullForm.value.inNum
 
   constructor(private componentService: ComponentService) {
   }
@@ -37,11 +37,11 @@ export class HeaderComponent implements OnInit {
   }
 
   // Should return as many 'input1/2/3...: new FormControl...' as there are in inNum
-  public formCTRLinput() {
-    this.refreshInF().forEach((value, index) => {
-      return "input" + index + ": new FormControl(null, Validators.required)"
-    })
-  }
+  // public formCTRLinput() {
+  //   this.refreshInF().forEach((value, index) => {
+  //     return "input" + index + ": new FormControl(null, Validators.required)"
+  //   })
+  // }
 
   ngOnInit(): void {
 

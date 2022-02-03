@@ -3,7 +3,7 @@ import { components } from './component-model/component-model.component';
 //import {HeaderComponent} from "../header/header.component";
 import { Subscription } from 'rxjs';
 import { ComponentService } from '../services/component.service';
-import {inNum} from '../header/header.component'
+
 
 
 @Component({
