@@ -27,9 +27,21 @@ export class HeaderComponent implements OnInit {
   }
 
 
+
+public arrr: number[] = [1,2,3]
+
+
   onClick() {
+
+
+
+   console.log( this.fullForm.value.inputs)
+
+
+
     this.componentService.addComponent(this.fullForm.value);
     this.fullForm.reset();
+
   }
 
   refreshInF() {
@@ -45,8 +57,10 @@ export class HeaderComponent implements OnInit {
 
 
       //TODO: Implement multiple Formcontrols for inputs and make it work in the component-list with In1:Lorem \n In2: Ipsum \n In3: xyz
-      //PROBLEM: Dynamicly create them and handle them, easy solution would be to have one and spereate them with ' ', ',' etc. and slice
+
       input: new FormControl(null),
+
+      inputs: new FormControl(null),
 
       output: new FormControl(null, Validators.required),
       inNum: new FormControl(1, [Validators.min(1), Validators.required]),

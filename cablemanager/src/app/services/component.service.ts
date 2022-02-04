@@ -10,7 +10,11 @@ export class ComponentService {
     components[]
   >([]);
 
+
+
   addComponent(componentObject: components) {
+
+
     let currentComponents: components[] = this.components.value;
     let newComponentArray: components[] = [
       ...currentComponents,

@@ -15,7 +15,6 @@ export class ComponentListComponent implements OnInit {
   private subComp: Subscription;
 
 
-
   constructor(private componentService: ComponentService) {
   }
 
@@ -32,14 +31,12 @@ export class ComponentListComponent implements OnInit {
 
 
 
-
     this.subComp = this.componentService.components.subscribe((value) => {
       this.components = value;
-      console.log(this.components);
-      // console.log(this.components[1].inNum)
+
+      console.log(this.components[1].inputs);
+      console.log(this.components.values)
     });
-
-
 
 
   }

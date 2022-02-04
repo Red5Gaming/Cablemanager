@@ -4,6 +4,7 @@ export class components {
   public input: string;
   public output: string;
   public inNum: number
+  public inputs: string[]
 
   constructor(name: string, desc: string, input: string, output: string, inNum: number) {
     this.name = name;
