@@ -1,9 +1,14 @@
-<div class="container" *ngFor="let cp of components">
+<div class="container" *ngFor="let cp of components; let index = index">
   <p>Name: {{ cp.name }}</p>
   <p>Desc: {{ cp.desc }}</p>
+  <p>Input Amount: {{cp.inNum}}</p>
 
-  <p>Input: {{ cp.input }}</p>
+  <p *ngFor="let i of arraylen(cp.inNum); let index = index">
+    Input {{index}}: {{cp.input}}
+  </p>
+
   <p>Output: {{ cp.output }}</p>
 
   <hr />
 </div>
+

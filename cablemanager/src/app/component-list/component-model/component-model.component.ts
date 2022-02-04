@@ -3,11 +3,13 @@ export class components {
   public desc: string;
   public input: string;
   public output: string;
+  public inNum: number
 
-  constructor(name: string, desc: string, input: string, output: string) {
+  constructor(name: string, desc: string, input: string, output: string, inNum: number) {
     this.name = name;
     this.desc = desc;
     this.input = input;
     this.output = output;
+    this.inNum = inNum;
   }
 }

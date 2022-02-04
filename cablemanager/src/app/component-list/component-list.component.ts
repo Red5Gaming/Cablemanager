@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { components } from './component-model/component-model.component';
+import {Component, OnInit} from '@angular/core';
+import {components} from './component-model/component-model.component';
 //import {HeaderComponent} from "../header/header.component";
-import { Subscription } from 'rxjs';
-import { ComponentService } from '../services/component.service';
-
+import {Subscription} from 'rxjs';
+import {ComponentService} from '../services/component.service';
 
 
 @Component({
@@ -15,13 +14,33 @@ export class ComponentListComponent implements OnInit {
   components: components[];
   private subComp: Subscription;
 
-  constructor(private componentService: ComponentService) {}
+
+
+  constructor(private componentService: ComponentService) {
+  }
+
+  arraylen(i: number) {
+    return new Array<number>(i).fill(1);
+  }
+
+
+
 
   ngOnInit(): void {
+
     this.componentService.initFirstComponents();
+
+
+
+
     this.subComp = this.componentService.components.subscribe((value) => {
       this.components = value;
       console.log(this.components);
+      // console.log(this.components[1].inNum)
     });
+
+
+
+
   }
 }

@@ -23,8 +23,8 @@ export class ComponentService {
 
   initFirstComponents() {
     this.components.next([
-      new components('Monitor', '60hz', 'HDMI', 'BILD'),
-      new components('Splitter', 'Hinter Schrank', 'HDMI & Strom', 'HDMI & Aux'),
+      new components('Monitor', '60hz',  'HDMI', 'BILD', 1),
+      new components('Splitter', 'Hinter Schrank', 'HDMI & Strom', 'HDMI & Aux', 1),
     ]);
   }
 }
