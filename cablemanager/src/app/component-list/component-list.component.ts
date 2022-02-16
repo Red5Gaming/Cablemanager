@@ -27,11 +27,15 @@ export class ComponentListComponent implements OnInit {
 
   ngOnInit(): void {
 
+
+
     this.componentService.initFirstComponents();
 
 
 
     this.subComp = this.componentService.components.subscribe((value) => {
+
+
       this.components = value;
 
       console.log(this.components[1].inputs);

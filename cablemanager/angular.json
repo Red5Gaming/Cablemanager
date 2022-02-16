@@ -117,6 +117,7 @@
   },
   "defaultProject": "cablemanager",
   "cli": {
+    "analytics": "1bdc5706-2476-4d51-93db-afca3c01e36b",
     "defaultCollection": "@angular-eslint/schematics"
   }
 }
